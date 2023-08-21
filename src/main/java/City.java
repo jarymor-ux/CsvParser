@@ -1,3 +1,8 @@
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 class City {
     private String name;
     private String region;

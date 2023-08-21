@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,8 +26,26 @@ public class Main {
                 } else {
                     System.out.println("Invalid line format: " + line);
                 }
+
             }
             scanner.close();
+            System.out.println("""
+                    Enter the number of the desired function.
+                     1.Sort the list of cities by name in descending alphabetical order.
+                     2.Sort the list of cities by federal district and city name within each federal district in\s
+                     descending alphabetical order in a case sensitive manner.\s
+                     Type here: """);
+            int answ = new Scanner(System.in).nextInt();
+
+            if (answ == 1){
+                Collections.sort(cities,new CityComporator());
+            } else if (answ == 2) {
+                Collections.sort(cities,new DistrictCityComparator());
+            }else {
+                System.out.println("Error.");
+            }
+
+
             for (City city : cities) {
                 System.out.println(city);
             }
