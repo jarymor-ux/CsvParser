@@ -17,7 +17,6 @@ class City {
         this.region = region;
         this.district = district;
         this.population = population;
-        System.out.println("hello");
         this.foundation = foundation;
     }
 
